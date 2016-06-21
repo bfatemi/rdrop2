@@ -7,6 +7,7 @@
 #' @param  dest A temporary directory where a csv file is downloaded before being read into memory
 #' @param  ... Additional arguments into \code{read.csv}
 #' @template token
+#' @importFrom utils read.csv
 #' @export
 #' @examples \dontrun{
 #' write.csv(iris, file = "iris.csv")

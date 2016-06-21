@@ -1,7 +1,7 @@
 options("httr_oauth_cache" = TRUE)
 # drop_acc
 # ......................................
-
+skip_on_cran()
 
 context("Testing that acc info works correctly")
 test_that("Account information works correctly", {
@@ -146,7 +146,7 @@ test_that("Search works correctly", {
 context("testing dropbox revisions")
 
 test_that("Revisions are returned correctly", {
-     skip_on_cran()
+    skip_on_cran()
     write.csv(iris, file = "iris.csv")
     drop_upload("iris.csv")
     write.csv(iris[iris$Species == "setosa", ], file = "iris.csv")
@@ -162,7 +162,7 @@ test_that("Revisions are returned correctly", {
 
 context("testing Dropbox exists")
 test_that("We can verify that a file exists on Dropbox", {
-     skip_on_cran()
+    skip_on_cran()
     library(uuid)
     drop_create("existential_test")
     expect_true(drop_exists("existential_test"))
@@ -180,7 +180,7 @@ test_that("We can verify that a file exists on Dropbox", {
 context("Testing Media URLs")
 
 test_that("Media URLs work correctly", {
-     skip_on_cran()
+    skip_on_cran()
     download.file("http://media4.giphy.com/media/YaXcVXGvBQlEI/200.gif", destfile = "duck_rabbit.gif")
     drop_upload("duck_rabbit.gif")
     media_url <- drop_media("duck_rabbit.gif")
@@ -192,7 +192,7 @@ test_that("Media URLs work correctly", {
 context("Testing drop_read_csv")
 
 test_that("Can read csv files directly from dropbox", {
-         skip_on_cran()
+    skip_on_cran()
     library(uuid)
     file_name <- paste0(UUIDgenerate(), ".csv")
     write.csv(iris, file = file_name)
@@ -205,7 +205,7 @@ test_that("Can read csv files directly from dropbox", {
 context("Drop delta works")
 
 test_that("Drop delta works", {
-         skip_on_cran()
+    skip_on_cran()
     library(uuid)
     file_name <- paste0(UUIDgenerate(), ".csv")
     write.csv(iris, file = file_name)
@@ -218,7 +218,7 @@ test_that("Drop delta works", {
 context("drop exists")
 
 test_that("Drop exists works", {
-         skip_on_cran()
+    skip_on_cran()
     drop_create("existential_test")
     expect_true(drop_exists("existential_test"))
     drop_delete("existential_test")
