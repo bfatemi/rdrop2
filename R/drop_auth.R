@@ -38,11 +38,14 @@
 #' drop_auth(new_user = FALSE, rdstoken = "/path/to/tokenfile.RDS")
 #'}
 drop_auth <- function(new_user = FALSE,
-                      key = "mmhfsybffdom42w",
-                      secret = "l8zeqqqgm1ne5z0",
+                      key = "5epr1bfek16z0yz",
+                      secret = "uak1h0pnk256cuk",
                       cache = TRUE,
                       rdstoken = NA) {
 
+
+  
+  
   # Check if token file exists & use it
   if (new_user == FALSE &  !is.na(rdstoken)) {
     if (file.exists(rdstoken)) {
@@ -63,8 +66,8 @@ drop_auth <- function(new_user = FALSE,
 
     # the dropbox endpoint
     dropbox <- httr::oauth_endpoint(
-      authorize = "https://www.dropbox.com/1/oauth2/authorize",
-      access = "https://api.dropbox.com/1/oauth2/token"
+      authorize = "https://www.dropbox.com/oauth2/authorize",
+      access = "https://api.dropbox.com/oauth2/token"
     )
     dropbox_token <- httr::oauth2.0_token(dropbox, dropbox_app, cache = cache)
     stopifnot(inherits(dropbox_token, "Token2.0"))
